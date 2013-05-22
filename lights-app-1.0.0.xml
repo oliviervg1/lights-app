@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<app>
+  <location>lights-app-1.0.0.jar</location>
+  <name>Lights</name>
+  <pagename>Let there be lights!</pagename>
+  <url>lights</url>
+  <description>The 'Lights' application allows you to remotely monitor the energy consumption of a power socket. You can also turn it on or off!</description>  
+  <icon>icon-lightbulb</icon>
+  <package>com.pi.LightsApp</package>
+</app>
