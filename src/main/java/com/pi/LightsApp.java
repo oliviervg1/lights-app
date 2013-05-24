@@ -1,17 +1,22 @@
 package com.pi;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.xml.namespace.QName;
 
 import automation.api.AbstractApp;
+import automation.api.components.NsLookupService;
 
 public class LightsApp extends AbstractApp {
 		
 	@Override
 	public void onStartup() {
-		connectToRemoteDevice("http://192.168.0.9:8080/lights-companion-1.0.0/SocketController?wsdl", new QName("http://relay.pi.com/", "SocketControllerService"));
+		try {
+			String deviceIp = NsLookupService.findDeviceIp("house-lights");
+			connectToRemoteDevice("http://" + deviceIp + ":8080/lights-companion-1.0.0/SocketController?wsdl", new QName("http://relay.pi.com/", "SocketControllerService"));
+		} catch (IOException e) {}
 	}
 	
 	public void turnOn() throws NoSuchMethodException  {
